@@ -1,0 +1,96 @@
+{
+  "entities": {
+    "UserProfile": {
+      "title": "UserProfile",
+      "description": "User profile in Aravo Graphic Arts System",
+      "type": "object",
+      "properties": {
+        "uid": {
+          "type": "string",
+          "description": "Firebase Auth UID"
+        },
+        "email": {
+          "type": "string",
+          "description": "Email address of the user"
+        },
+        "displayName": {
+          "type": "string",
+          "description": "Full name or display name"
+        },
+        "photoURL": {
+          "type": "string",
+          "description": "Profile picture URL"
+        },
+        "role": {
+          "type": "string",
+          "description": "Role in the printing press system",
+          "enum": ["admin", "cotizador", "taller", "comercial"]
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "lastLoginAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": ["uid", "email", "role"]
+    },
+    "SavedProject": {
+      "title": "SavedProject",
+      "description": "Saved printing project or quote (Offset or Flexo)",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Project identifier"
+        },
+        "userId": {
+          "type": "string",
+          "description": "Owner UID"
+        },
+        "name": {
+          "type": "string",
+          "description": "Job or Project Name"
+        },
+        "client": {
+          "type": "string",
+          "description": "Client company or contact"
+        },
+        "technology": {
+          "type": "string",
+          "description": "Printing technology",
+          "enum": ["offset", "flexo"]
+        },
+        "finalPrice": {
+          "type": "number",
+          "description": "Total final quote price"
+        },
+        "savedAt": {
+          "type": "string",
+          "description": "Human readable date string"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": ["id", "userId", "name", "technology", "finalPrice"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "UserProfile",
+      "description": "User profiles indexed by UID"
+    },
+    "/users/{userId}/quotes/{quoteId}": {
+      "schema": "SavedProject",
+      "description": "User's saved quotations and job calculations"
+    }
+  }
+}

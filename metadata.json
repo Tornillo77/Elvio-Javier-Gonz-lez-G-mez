@@ -1,0 +1,8 @@
+{
+  "name": "Remix Aravo Smart 1.0 - Cálculos y Presupuestos Gráficos",
+  "description": "Software integral para la industria gráfica: aprovechamiento de corte de pliegos y bobinas, consumo de tinta por m², tiempos de máquina (Aravo) y presupuestos para Flexografía.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
